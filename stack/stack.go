@@ -11,7 +11,7 @@ type Stack[T any] struct {
 	size  uint
 }
 
-func (s Stack[T]) Peek() T {
+func (s *Stack[T]) Peek() T {
 	if s.size == 0 {
 		var zeroValue T
 		return zeroValue // Return zero value of type T if stack is empty
@@ -19,7 +19,7 @@ func (s Stack[T]) Peek() T {
 	return s.items[s.size-1] // Return the last item in the stack
 }
 
-func (s Stack[T]) Pop() T {
+func (s *Stack[T]) Pop() T {
 	if s.size == 0 {
 		var zeroValue T
 		return zeroValue // Return zero value of type T if stack is empty
@@ -30,7 +30,7 @@ func (s Stack[T]) Pop() T {
 	return item                  // Return the popped item
 }
 
-func (s Stack[T]) Push(item T) bool {
+func (s *Stack[T]) Push(item T) bool {
 	if s.size == 0 {
 		s.items = []T{item} // Initialize the stack with the first item
 	} else {
@@ -40,21 +40,21 @@ func (s Stack[T]) Push(item T) bool {
 	return true // Return true indicating success
 }
 
-func (s Stack[T]) Size() uint {
+func (s *Stack[T]) Size() uint {
 	if s.size == 0 {
 		return 0 // Return 0 if the stack is empty
 	}
 	return s.size // Return the current size of the stack
 }
 
-func (s Stack[T]) IsEmpty() bool {
+func (s *Stack[T]) IsEmpty() bool {
 	if s.size == 0 {
 		return true // Return true if size is 0, indicating the stack is empty
 	}
 	return false // Return false if the stack has items
 }
 
-func (s Stack[T]) Clear() bool {
+func (s *Stack[T]) Clear() bool {
 	if s.size == 0 {
 		return false // Cannot clear an empty stack
 	}
@@ -63,7 +63,7 @@ func (s Stack[T]) Clear() bool {
 	return true     // Return true indicating success
 }
 
-func (s Stack[T]) ToSlice() []T {
+func (s *Stack[T]) ToSlice() []T {
 	if s.size == 0 {
 		return []T{} // Return an empty slice if the stack is empty
 	}
