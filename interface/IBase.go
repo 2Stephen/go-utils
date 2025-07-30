@@ -7,6 +7,5 @@ type IBase[T any] interface {
 	Size() uint
 	IsEmpty() bool
 	Clear() bool
-	Contains(item T) bool
 	ToSlice() []T
 }

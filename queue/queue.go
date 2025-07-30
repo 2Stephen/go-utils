@@ -34,43 +34,37 @@ func (q *Queue[T]) Push(item T) bool {
 	if q == nil {
 		return false
 	}
-	q.items = append(q.items, item)
-	q.size++
-	return true
+	q.items = append(q.items, item) // Add the item to the end of the queue
+	q.size++                        // Increase the size of the queue
+	return true                     // Return true indicating success
 }
 
 func (q *Queue[T]) Size() uint {
 	if q == nil {
-		return 0
+		return 0 // Return 0 if the queue is nil
 	}
-	return q.size
+	return q.size // Return the current size of the queue
 }
 
 func (q *Queue[T]) IsEmpty() bool {
 	if q == nil {
-		return true
+		return true // Consider a nil queue as empty
 	}
-	return q.size == 0
+	return q.size == 0 // Return true if size is 0, indicating the queue is empty
 }
 
 func (q *Queue[T]) Clear() bool {
 	if q == nil {
-		return false
+		return false // Cannot clear a nil queue
 	}
-	q.items = nil
-	q.size = 0
-	return true
-}
-
-func (q *Queue[T]) Contains(item T) bool {
-	return false
+	q.items = []T{} // Reset the items slice to an empty slice
+	q.size = 0      // Reset the size to 0
+	return true     // Return true indicating success
 }
 
 func (q *Queue[T]) ToSlice() []T {
 	if q == nil {
-		return nil
+		return nil // Return nil if the queue is nil
 	}
-	slice := make([]T, q.size)
-	copy(slice, q.items)
-	return slice
+	return q.items // Return the items in the queue as a slice
 }
