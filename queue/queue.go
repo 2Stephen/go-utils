@@ -1,6 +1,6 @@
 package queue
 
-import _interface "go-utils/interface"
+import _interface "github.com/2Stephen/go-utils/interface"
 
 type IQueue[T any] interface {
 	_interface.IBase[T]

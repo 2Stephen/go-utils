@@ -1,3 +1,3 @@
-module go-utils
+module github.com/2Stephen/go-utils
 
-go 1.24
+go 1.22
