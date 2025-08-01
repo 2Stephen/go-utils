@@ -1,6 +1,6 @@
 package stack
 
-import _interface "utils/interface"
+import _interface "go-utils/interface"
 
 type IStack[T any] interface {
 	_interface.IBase[T]
